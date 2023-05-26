@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+    <style>
+        body{
+            background-color: #B4F8C8;
+        }
+
+        .background{
+            width: 1000px;
+            background-color: #FBE7C6;
+            margin: 20px auto;
+            box-shadow: 10px 10px 10px #aaaaaa;
+            padding: 50px;
+            
+        }
+       
+        input{
+            width: 15%;
+            height: 60px;
+            font-size: 25px;
+            color: black;
+            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 9px;
+            margin-left: 10px;
+        }
+
+        p{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+        }
+        a{
+            text-decoration: none;
+            border: 1px solid black;
+            font-size: 25px;
+            color: black;
+            padding: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #DEE1E6;
+            margin-left: 50%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <center><h1>__ToDo List__</h1></center>
+        <hr>
+        <p>Are you sure you want to delete "{{task}}" ?</p>
+        
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <a href="{% url 'home' %}" > Cancel</a>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+    
+</body>
+</html>

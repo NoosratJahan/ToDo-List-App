@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>brand new</title>
+    <style>
+        body{
+            background-color: #B4F8C8;
+        }
+
+        .background{
+            width: 1000px;
+            background-color: #FFAEBC;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px 10px gray ;
+            padding: 50px;
+        }
+        label{
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000C66;
+            font-weight: bold;
+        }
+        input{
+            width: 100%;
+            font-size: 20px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 15px;
+        }
+
+        button{
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .block{
+            width: 100%;
+            background-color: #F9F1F0;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            padding: 2%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="background">
+        <center><h1>__ToDo List__</h1></center>
+        <hr>
+
+        <form action="", method="post" >
+            {% csrf_token %}
+            
+            <label for="">Title...</label>
+            {{form.title}}
+             
+            {% comment %} <input type="text" name="title" class="form-control" > {% endcomment %}
+            <button type="submit" class="btn btn-dark font-weight-bold text-light">Create Task</button>
+        </form>
+
+        {% for task in tasks reversed %}
+            <div class="block">
+               <p> {{task}} </p> 
+               <a href="{% url 'update' task.id %}" class="btn btn-info" style="margin-left: 70%; gap: 15px;">Update</a>
+               <a href="{% url 'delete' task.id %}" class="btn btn-danger" style="margin-right: 5%;">Delete</a>
+
+            </div>      
+        
+        {% endfor %}
+        
+    </div>
+</body>
+</html>
